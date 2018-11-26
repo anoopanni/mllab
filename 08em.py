@@ -2,6 +2,7 @@ from sklearn import preprocessing
 from sklearn import datasets
 import matplotlib.pyplot as plt
 import pandas as pd
+import numpy as np
 
 iris = datasets.load_iris()
 X = pd.DataFrame(iris.data)
@@ -18,6 +19,7 @@ gmm = GaussianMixture(n_components=3)
 gmm.fit(xs)
 
 y_cluster_gmm = gmm.predict(xs)
+colormap = np.array(['red', 'lime', 'black'])
 plt.subplot(1, 2, 1)
 plt.scatter(X.Petal_Length, X.Petal_Width, c=colormap[y_cluster_gmm], s=40)
 plt.title('GMM Classification')
